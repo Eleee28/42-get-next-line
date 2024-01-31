@@ -30,3 +30,4 @@ cc -Wall -Werror -Wextra -D BUFFER_SIZE=42 <files>.c
 ~~~~~
 
 ### Bonus part
+Makes possible for `get_next_line` to manage multiple file descriptors at the same time without losing the reading thread of each file descriptor or returning a line from another fd.
