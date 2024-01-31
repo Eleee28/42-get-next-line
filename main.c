@@ -6,7 +6,7 @@
 /*   By: ejuarros <ejuarros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 08:35:21 by elena             #+#    #+#             */
-/*   Updated: 2024/01/31 08:15:43 by ejuarros         ###   ########.fr       */
+/*   Updated: 2024/01/31 09:22:05 by ejuarros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 // defines the flags (O_RDONLY)
 #include <fcntl.h>
 
+// Read just one line from a file
+/*
 int	main(void)
 {
 	int		fd;
@@ -26,82 +28,69 @@ int	main(void)
 	char	*line;
 	int		i;
 
-	i = 0;
+	file_name = "files/quijote.txt";
 	fd = open(file_name, O_RDONLY);
-	line = get_next_line(fd);
-	printf("%d: %s", i++, line);
-	line = get_next_line(fd);
-	printf("%d: %s", i++, line);
-	line = get_next_line(fd);
-	printf("%d: %s", i++, line);
-}
-
-/*
-int	main(void)
-{
-	int		fd1, fd2;
-	char	*file_name;
-	char	*line1, *line2;
-	int		i, j;
-
-	file_name = "../files/test2.txt";
-	fd2 = open(file_name, O_RDONLY);
-	fd1= open("../files/test1.txt", O_RDONLY);
-	if (fd2 != -1 && fd1 != -1)
-	{
-		i = 0;
-		j = 0;
-		line1 = get_next_line(fd1);
-		printf("%d: %s", i++, line1);
-		line2 = get_next_line(fd2);
-		printf("%d: %s", j++, line2);
-		while (line1 || line2)
-		{
-			if (line1)
-			{
-				line1 = get_next_line(fd1);
-				printf("%d: %s", i++, line1);
-			}
-			if (line2)
-			{
-				line2 = get_next_line(fd2);
-				printf("%d: %s", j++, line2);
-			}
-		}
-	}
-	close(fd1);
-	close(fd2);
+	printf("Line read: %s", get_next_line(fd));
+	close(fd);
 	return (0);
 }
 */
 
+// Read a whole file
 /*
+int	main(void)
+{
+	int		fd;
+	char	*file_name;
+	char	*line;
+	int		i;
+
+	file_name = "files/quijote.txt";
+	fd = open(file_name, O_RDONLY);
 	if (fd != -1)
 	{
 		i = 0;
 		line = get_next_line(fd);
-		printf("%d: %s", i++, line);
-		while (line && ((line[0] == '\n' && line[1] != '\n') 
-			|| (line[0] != '\n')))
+		printf("Line %d: %s", ++i, line);
+		while (line)
 		{
+			sleep(1);
 			line = get_next_line(fd);
-			printf("%d: %s", i++, line);
+			printf("Line %d: %s", ++i, line);
 		}
 	}
-	*/
+	close(fd);
+	return (0);
+}
+*/
 
-	/*if (fd != -1)
+// Read just one line from stdin
+/*
+int	main(void)
+{
+	char	*line;
+	int		i;
+
+	printf("Line read: %s", get_next_line(0));
+	return (0);
+}
+*/
+
+// Read infinite lines (until ^C) from stdin
+/*
+int	main(void)
+{
+	char	*line;
+	int		i;
+
+	i = 0;
+	line = get_next_line(0);
+	printf("Line %d: %s", ++i, line);
+	while (line)
 	{
-		line = get_next_line(fd);
-		printf("%d: %s", i++, line);
-		line = get_next_line(fd);
-		printf("%d: %s", i++, line);
-		line = get_next_line(fd);
-		printf("%d: %s", i++, line);
-		line = get_next_line(fd);
-		printf("%d: %s", i++, line);
-		line = get_next_line(fd);
-		printf("%d: %s", i++, line);
+		line = get_next_line(0);
+		printf("Line %d: %s", ++i, line);
 	}
-	
-	*/
+	return (0);
+}
+*/
