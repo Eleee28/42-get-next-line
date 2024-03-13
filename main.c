@@ -6,7 +6,7 @@
 /*   By: ejuarros <ejuarros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 08:35:21 by elena             #+#    #+#             */
-/*   Updated: 2024/01/31 09:58:54 by ejuarros         ###   ########.fr       */
+/*   Updated: 2024/03/13 08:49:09 by ejuarros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int	main(void)
 	char	*file_name;
 	char	*line;
 	int		i;
-
+	
+	printf("BUFFER_SIZE: %d\n", BUFFER_SIZE);
 	file_name = "files/quijote.txt";
 	fd = open(file_name, O_RDONLY);
 	if (fd != -1)

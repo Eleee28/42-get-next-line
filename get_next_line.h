@@ -6,7 +6,7 @@
 /*   By: ejuarros <ejuarros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 21:11:57 by elena             #+#    #+#             */
-/*   Updated: 2024/01/31 08:24:24 by ejuarros         ###   ########.fr       */
+/*   Updated: 2024/03/13 08:41:51 by ejuarros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 25
+#  define BUFFER_SIZE 42
 # endif
 
 # include <unistd.h>

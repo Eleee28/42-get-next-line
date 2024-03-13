@@ -6,11 +6,12 @@
 /*   By: ejuarros <ejuarros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 21:21:15 by elena             #+#    #+#             */
-/*   Updated: 2024/01/31 09:51:25 by ejuarros         ###   ########.fr       */
+/*   Updated: 2024/03/13 08:47:01 by ejuarros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+#include <limits.h>
 
 /**
  * @details 
@@ -27,7 +28,8 @@ char	*get_next_line(int fd)
 	static t_list	*list[OPEN_MAX];
 	char			*line;
 
-	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || BUFFER_SIZE >= INT_MAX
+		|| read(fd, 0, 0) < 0)
 	{
 		free_mem(&list[fd], 0, 0);
 		return (0);
