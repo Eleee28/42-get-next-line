@@ -1,5 +1,7 @@
 # 42_gnl
 
+Statement of the project (in [Spanish](es.subject.pdf) / [English](en.subject.pdf))
+
 ## About the project
 
 The goal of the project is to code a function that returns a line read from a file descriptor.
