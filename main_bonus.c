@@ -6,7 +6,7 @@
 /*   By: ejuarros <ejuarros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 08:35:21 by elena             #+#    #+#             */
-/*   Updated: 2024/01/31 10:03:46 by ejuarros         ###   ########.fr       */
+/*   Updated: 2024/08/14 11:30:21 by ejuarros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,37 @@ int	main(void)
 	char	*line2;
 
 	fd1 = open("files/quijote.txt", O_RDONLY);
-	printf("Line read[fd1]: %s", get_next_line(fd1));
 	fd2 = open("files/romeo_juliet.txt", O_RDONLY);
-	printf("Line read[fd2]: %s", get_next_line(fd2));
-	printf("Line read[fd1]: %s", get_next_line(fd1));
-	printf("Line read[fd2]: %s", get_next_line(fd2));
-	printf("Line read[fd1]: %s", get_next_line(fd1));
-	printf("Line read[fd2]: %s", get_next_line(fd2));
+    {
+        line1 = get_next_line(fd1);
+        printf("Line read[fd1]: %s", line1);
+        free(line1);
+    }
+    {
+        line2 = get_next_line(fd2);
+        printf("Line read[fd2]: %s", line2);
+        free(line2);
+    }
+    {
+        line1 = get_next_line(fd1);
+        printf("Line read[fd1]: %s", line1);
+        free(line1);
+    }
+    {
+        line2 = get_next_line(fd2);
+        printf("Line read[fd2]: %s", line2);
+        free(line2);
+    }
+    {
+        line1 = get_next_line(fd1);
+        printf("Line read[fd1]: %s", line1);
+        free(line1);
+    }
+    {
+        line2 = get_next_line(fd2);
+        printf("Line read[fd2]: %s", line2);
+        free(line2);
+    }
 	close(fd1);
 	close(fd2);
 	return (0);
@@ -62,55 +86,30 @@ int	main(void)
 		line2 = get_next_line(fd2);
 		printf("[fd%d] Line %d: %s", fd2, i, line2);
 		i++;
-		while (line1 || line2)
+		while ((line1 || line2) && i < 7)
 		{
 			sleep(1);
 			if (line1)
 			{
+                free(line1);
 				line1 = get_next_line(fd1);
 				printf("[fd%d] Line %d: %s", fd1, i, line1);
 			}
 			if (line2)
 			{
+                free(line2);
 				line2 = get_next_line(fd2);
 				printf("[fd%d] Line %d: %s", fd2, i, line2);
 			}
 			i++;
 		}
+        if (line1)
+            free(line1);
+        if (line2)
+            free(line2);
 	}
 	close(fd1);
 	close(fd2);
-	return (0);
-}
-*/
-
-// Read just one line from stdin
-/*
-int	main(void)
-{
-	char	*line;
-	int		i;
-
-	printf("Line read: %s", get_next_line(0));
-	return (0);
-}
-*/
-
-// Read infinite lines (until ^C) from stdin
-/*
-int	main(void)
-{
-	char	*line;
-	int		i;
-
-	i = 0;
-	line = get_next_line(0);
-	printf("Line %d: %s", ++i, line);
-	while (line)
-	{
-		line = get_next_line(0);
-		printf("Line %d: %s", ++i, line);
-	}
 	return (0);
 }
 */
