@@ -6,7 +6,7 @@
 /*   By: ejuarros <ejuarros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 08:35:21 by elena             #+#    #+#             */
-/*   Updated: 2024/03/13 08:49:09 by ejuarros         ###   ########.fr       */
+/*   Updated: 2024/08/14 11:57:26 by ejuarros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ int	main(void)
 
 	file_name = "files/quijote.txt";
 	fd = open(file_name, O_RDONLY);
-	printf("Line read: %s", get_next_line(fd));
+    line = get_next_line(fd);
+	printf("Line read: %s", line);
+    free(line);
 	close(fd);
 	return (0);
 }
@@ -52,12 +54,15 @@ int	main(void)
 		i = 0;
 		line = get_next_line(fd);
 		printf("Line %d: %s", ++i, line);
-		while (line)
+		while (line && i < 7)
 		{
 			sleep(1);
+            free(line);
 			line = get_next_line(fd);
 			printf("Line %d: %s", ++i, line);
 		}
+        if (line)
+            free(line);
 	}
 	close(fd);
 	return (0);
@@ -71,7 +76,9 @@ int	main(void)
 	char	*line;
 	int		i;
 
-	printf("Line read: %s", get_next_line(0));
+    line = get_next_line(0);
+	printf("Line read: %s", line);
+    free(line);
 	return (0);
 }
 */
@@ -88,9 +95,14 @@ int	main(void)
 	printf("Line %d: %s", ++i, line);
 	while (line)
 	{
+        free(line);
 		line = get_next_line(0);
 		printf("Line %d: %s", ++i, line);
 	}
+    if (line)
+    {
+        free(line);
+    }
 	return (0);
 }
 */
