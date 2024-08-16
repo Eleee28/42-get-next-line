@@ -59,7 +59,7 @@ To achieve this, the static variable is modified to be an array:
 static t_list *list[OPEN_MAX];
 ```
 
-**Note**: `OPEN_MAX` is a macro defined in `<limits.h>` representing the maximum number of files a process can have open simultaneously.
+**Note**: `OPEN_MAX` is a macro defined in `<limits.h>` (in Mac, in Linux you must define it) representing the maximum number of files a process can have open simultaneously.
 
 ## Implementation Steps
 

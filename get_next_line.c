@@ -6,7 +6,7 @@
 /*   By: ejuarros <ejuarros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 21:21:15 by elena             #+#    #+#             */
-/*   Updated: 2024/08/15 17:22:53 by ejuarros         ###   ########.fr       */
+/*   Updated: 2024/08/16 17:05:27 by ejuarros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
  * 
  *  - If the BUFFER_SIZE is <= 0 there is nothing to read
  * 
- *  - If read() < 0 it means there has been an error reading from fd 
- * 	(note that reads 0 characters so that it does not advance in the file)
 */
 char	*get_next_line(int fd)
 {
