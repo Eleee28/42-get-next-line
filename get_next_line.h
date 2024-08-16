@@ -6,7 +6,7 @@
 /*   By: ejuarros <ejuarros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 21:11:57 by elena             #+#    #+#             */
-/*   Updated: 2024/03/13 08:41:51 by ejuarros         ###   ########.fr       */
+/*   Updated: 2024/08/14 10:58:18 by ejuarros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #  define BUFFER_SIZE 42
 # endif
 
+# include <limits.h>
 # include <unistd.h>
 # include <stdlib.h>
 

@@ -6,7 +6,7 @@
 /*   By: ejuarros <ejuarros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 21:11:57 by elena             #+#    #+#             */
-/*   Updated: 2024/01/31 09:44:34 by ejuarros         ###   ########.fr       */
+/*   Updated: 2024/08/13 10:38:17 by ejuarros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # include <limits.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX 1024
+# endif
 
 /** @struct s_list
  * 

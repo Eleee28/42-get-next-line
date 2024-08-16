@@ -6,7 +6,7 @@
 /*   By: ejuarros <ejuarros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 21:22:16 by elena             #+#    #+#             */
-/*   Updated: 2024/01/31 09:44:25 by ejuarros         ###   ########.fr       */
+/*   Updated: 2024/08/14 10:47:54 by ejuarros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	find_nl(t_list *list)
 	while (list)
 	{
 		i = 0;
-		while (list->content[i] && i < BUFFER_SIZE)
+		while (list->content[i])
 		{
 			if (list->content[i] == '\n')
 				return (1);

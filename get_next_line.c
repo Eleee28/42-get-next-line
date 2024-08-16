@@ -6,12 +6,11 @@
 /*   By: ejuarros <ejuarros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 21:21:15 by elena             #+#    #+#             */
-/*   Updated: 2024/03/13 08:46:22 by ejuarros         ###   ########.fr       */
+/*   Updated: 2024/08/15 17:22:53 by ejuarros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <limits.h>
 
 /**
  * @details 
@@ -28,8 +27,7 @@ char	*get_next_line(int fd)
 	static t_list	*list = 0;
 	char			*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= INT_MAX
-		|| read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= INT_MAX)
 	{
 		free_mem(&list, 0, 0);
 		return (0);
@@ -58,7 +56,7 @@ void	create_list(t_list **list, int fd)
 		if (!buffer)
 			return ;
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (!bytes_read)
+		if (bytes_read <= 0)
 		{
 			free(buffer);
 			return ;
@@ -116,8 +114,8 @@ void	update_list(t_list **list)
 		buffer[j] = 0;
 		new_node->content = buffer;
 		new_node->next = 0;
-		free_mem(list, new_node, buffer);
 	}
+	free_mem(list, new_node, buffer);
 }
 
 /**
