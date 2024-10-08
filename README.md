@@ -1,4 +1,12 @@
-# 42_gnl
+<p align="center">
+  <img src="https://github.com/ayogun/42-project-badges/blob/main/badges/get_next_linem.png" alt="get next line badge"/>
+</p>
+
+<h1 align="center">
+ 42 Get Next Line
+</h1>
+
+<!-- # 42_gnl -->
 
 Statement of the project (in [Spanish](es.subject.pdf) / [English](en.subject.pdf))
 
